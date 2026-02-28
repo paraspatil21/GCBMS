@@ -68,6 +68,15 @@ public class PaymentFrame extends JFrame {
         onlinePanel.add(new JLabel("Scan QR code using any UPI app to pay."), gbc2);
 
         gbc2.gridy = 1;
+        try {
+            ImageIcon icon = new ImageIcon(getClass().getResource("/images/gcbmc_qr.jpeg"));
+            JLabel qrLabel = new JLabel(icon);
+            onlinePanel.add(qrLabel, gbc2);
+        } catch (Exception ex) {
+            onlinePanel.add(new JLabel("[QR Code Image Not Found]"), gbc2);
+        }
+
+        gbc2.gridy = 2;
         gbc2.gridwidth = 1;
         onlinePanel.add(new JLabel("Upi Id:"), gbc2);
         gbc2.gridx = 1;
@@ -75,19 +84,19 @@ public class PaymentFrame extends JFrame {
         onlinePanel.add(upiField, gbc2);
 
         gbc2.gridx = 0;
-        gbc2.gridy = 2;
+        gbc2.gridy = 3;
         onlinePanel.add(new JLabel("Transaction Id:"), gbc2);
         gbc2.gridx = 1;
         JTextField trnField = new JTextField(15);
         onlinePanel.add(trnField, gbc2);
 
         gbc2.gridx = 0;
-        gbc2.gridy = 3;
+        gbc2.gridy = 4;
         gbc2.gridwidth = 2;
         JButton submitOnlineBtn = new JButton("Submit Payment");
         onlinePanel.add(submitOnlineBtn, gbc2);
 
-        gbc2.gridy = 4;
+        gbc2.gridy = 5;
         JButton cancelOnlineBtn = new JButton("Cancel");
         onlinePanel.add(cancelOnlineBtn, gbc2);
 
